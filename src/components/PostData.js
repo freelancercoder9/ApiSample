@@ -1,10 +1,11 @@
 import React, { useState } from "react";
+import { useEffect } from "react";
 
 function PostData(props) {
-  const [empId, setEmpId] = useState("");
-  const [empName, setEmpName] = useState("");
-  const [email, setEmail] = useState("");
-  const [address, setAddress] = useState("");
+  const [empId, setEmpId] = useState(props.objectData.employeeId);
+  const [empName, setEmpName] = useState(props.objectData.employeeName);
+  const [email, setEmail] = useState(props.objectData.employeeEmail);
+  const [address, setAddress] = useState(props.objectData.employeeAddress);
 
   const clickUpdate = () => {
     console.log(empId);
@@ -21,6 +22,15 @@ function PostData(props) {
 
     props.addEvent(empData);
   };
+
+  useEffect(() => {
+    return () => {
+      setEmpId(props.objectData.employeeId);
+      setEmpName(props.objectData.employeeName);
+      setEmail(props.objectData.employeeEmail);
+      setAddress(props.objectData.employeeAddress);
+    };
+  }, [props.objectData]);
   return (
     <div className="d-flex flex-column mt-5">
       <div className="d-flex justify-content-between mb-2">
