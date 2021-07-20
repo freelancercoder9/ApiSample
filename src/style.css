@@ -1,0 +1,12 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+.line {
+  color: red;
+  margin-bottom: 0px;
+}
+.listComp:hover {
+  background-color: pink;
+  cursor: pointer;
+}
